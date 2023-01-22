@@ -13,22 +13,28 @@ import org.springframework.stereotype.Component;
 public class DTOMapper {
 
     public Drone convertToEntity(DroneDTO droneDTO) {
-        Drone drone = new Drone();
-        drone.setSerialNumber(droneDTO.getSerialNumber());
-        drone.setWeightLimit(droneDTO.getWeightLimit());
-        drone.setBatteryCapacityPercentage(droneDTO.getBatteryCapacityPercentage());
-        drone.setModel(droneDTO.getModel());
-        drone.setState(droneDTO.getState());
-        return drone;
+        if (droneDTO != null) {
+            Drone drone = new Drone();
+            drone.setSerialNumber(droneDTO.getSerialNumber());
+            drone.setWeightLimit(droneDTO.getWeightLimit());
+            drone.setBatteryCapacityPercentage(droneDTO.getBatteryCapacityPercentage());
+            drone.setModel(droneDTO.getModel());
+            drone.setState(droneDTO.getState());
+            return drone;
+        }
+        return null;
     }
 
     public DroneDTO convertToDTO(Drone drone) {
-        DroneDTO droneDTO = new DroneDTO();
-        droneDTO.setSerialNumber(drone.getSerialNumber());
-        droneDTO.setWeightLimit(drone.getWeightLimit());
-        droneDTO.setBatteryCapacityPercentage(drone.getBatteryCapacityPercentage());
-        droneDTO.setModel(drone.getModel());
-        droneDTO.setState(drone.getState());
-        return droneDTO;
+        if (drone != null) {
+            DroneDTO droneDTO = new DroneDTO();
+            droneDTO.setSerialNumber(drone.getSerialNumber());
+            droneDTO.setWeightLimit(drone.getWeightLimit());
+            droneDTO.setBatteryCapacityPercentage(drone.getBatteryCapacityPercentage());
+            droneDTO.setModel(drone.getModel());
+            droneDTO.setState(drone.getState());
+            return droneDTO;
+        }
+        return null;
     }
 }

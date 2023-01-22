@@ -1,6 +1,11 @@
 package com.example.api.drones.service;
 
 import com.example.api.drones.dto.DroneDTO;
+import com.example.api.drones.enums.DroneState;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
+import java.util.List;
 
 /**
  * @Author manorip
@@ -9,4 +14,8 @@ import com.example.api.drones.dto.DroneDTO;
 
 public interface IDroneService {
     DroneDTO create(DroneDTO droneDTO);
+    DroneDTO findBySerialNumber(String serialNumber);
+    List<DroneDTO> findByState(DroneState state);
+    Page<DroneDTO> findAllDrones(Pageable pageable);
+
 }
