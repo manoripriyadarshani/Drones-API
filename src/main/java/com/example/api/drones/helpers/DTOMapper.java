@@ -1,7 +1,9 @@
 package com.example.api.drones.helpers;
 
 import com.example.api.drones.dto.DroneDTO;
+import com.example.api.drones.dto.MedicationDTO;
 import com.example.api.drones.model.Drone;
+import com.example.api.drones.model.Medication;
 import org.springframework.stereotype.Component;
 
 /**
@@ -37,4 +39,31 @@ public class DTOMapper {
         }
         return null;
     }
+
+    public Medication convertToEntity(MedicationDTO medicationDTO) {
+        if (medicationDTO != null) {
+            Medication medication = new Medication();
+            medication.setId(medicationDTO.getId());
+            medication.setCode(medicationDTO.getCode());
+            medication.setName(medicationDTO.getName());
+            medication.setWeight(medicationDTO.getWeight());
+            medication.setImage(medicationDTO.getImage());
+            return medication;
+        }
+        return null;
+    }
+
+    public MedicationDTO convertToDTO(Medication medication) {
+        if (medication != null) {
+            MedicationDTO medicationDTO = new MedicationDTO();
+            medicationDTO.setId(medication.getId());
+            medicationDTO.setCode(medication.getCode());
+            medicationDTO.setName(medication.getName());
+            medicationDTO.setWeight(medication.getWeight());
+            medicationDTO.setImage(medication.getImage());
+            return medicationDTO;
+        }
+        return null;
+    }
+
 }

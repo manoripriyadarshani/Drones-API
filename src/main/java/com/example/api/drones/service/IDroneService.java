@@ -1,6 +1,7 @@
 package com.example.api.drones.service;
 
 import com.example.api.drones.dto.DroneDTO;
+import com.example.api.drones.dto.MedicationDTO;
 import com.example.api.drones.enums.DroneState;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -17,5 +18,6 @@ public interface IDroneService {
     DroneDTO findBySerialNumber(String serialNumber);
     List<DroneDTO> findByState(DroneState state);
     Page<DroneDTO> findAllDrones(Pageable pageable);
-
+    List<MedicationDTO> addMedications(String serialNumber, List<MedicationDTO> medications) throws Exception;
+    List<MedicationDTO> getMedications(String serialNumber) throws Exception;
 }

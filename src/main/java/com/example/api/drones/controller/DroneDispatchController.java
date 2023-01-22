@@ -1,8 +1,6 @@
 package com.example.api.drones.controller;
 
-import com.example.api.drones.dto.DroneDTO;
-import com.example.api.drones.dto.DroneListDTO;
-import com.example.api.drones.dto.PagedDroneListDTO;
+import com.example.api.drones.dto.*;
 import com.example.api.drones.enums.DroneState;
 import com.example.api.drones.service.IDroneService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,5 +59,22 @@ public class DroneDispatchController {
 
         return new ResponseEntity<>(responseDTO, HttpStatus.OK);
     }
+
+    @PostMapping("/{serial_number}/medications")
+    public ResponseEntity<MedicationListDTO> addMedications(@PathVariable("serial_number") String serialNumber, @RequestBody MedicationListDTO requestDTO) throws Exception {
+        List<MedicationDTO> savedMedications = droneService.addMedications(serialNumber, requestDTO.getMedications());
+        MedicationListDTO responseDTO = new MedicationListDTO();
+        responseDTO.setMedications(savedMedications);
+        return new ResponseEntity<>(responseDTO, HttpStatus.OK);
+    }
+
+    @GetMapping("/{serial_number}/medications")
+    public ResponseEntity<MedicationListDTO> getMedicationsByDrone(@PathVariable("serial_number") String serialNumber) throws Exception {
+        List<MedicationDTO> savedMedications = droneService.getMedications(serialNumber);
+        MedicationListDTO responseDTO = new MedicationListDTO();
+        responseDTO.setMedications(savedMedications);
+        return new ResponseEntity<>(responseDTO, HttpStatus.OK);
+    }
+
 
 }
