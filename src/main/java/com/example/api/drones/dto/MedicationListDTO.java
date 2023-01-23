@@ -1,5 +1,6 @@
 package com.example.api.drones.dto;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -8,6 +9,7 @@ import java.util.List;
  */
 public class MedicationListDTO {
 
+    @Valid
     private List<MedicationDTO> medications;
 
     public List<MedicationDTO> getMedications() {

@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -26,7 +27,7 @@ public class DroneDispatchController {
     private IDroneService droneService;
 
     @PostMapping()
-    public ResponseEntity<DroneDTO> addDrone(@RequestBody DroneDTO droneDTO) {
+    public ResponseEntity<DroneDTO> addDrone(@Valid @RequestBody DroneDTO droneDTO) {
         DroneDTO responseDTO = droneService.create(droneDTO);
         return new ResponseEntity<>(responseDTO, HttpStatus.CREATED);
     }
@@ -61,7 +62,7 @@ public class DroneDispatchController {
     }
 
     @PostMapping("/{serial_number}/medications")
-    public ResponseEntity<MedicationListDTO> addMedications(@PathVariable("serial_number") String serialNumber, @RequestBody MedicationListDTO requestDTO) throws Exception {
+    public ResponseEntity<MedicationListDTO> addMedications(@PathVariable("serial_number") String serialNumber, @Valid @RequestBody MedicationListDTO requestDTO) throws Exception {
         List<MedicationDTO> savedMedications = droneService.addMedications(serialNumber, requestDTO.getMedications());
         MedicationListDTO responseDTO = new MedicationListDTO();
         responseDTO.setMedications(savedMedications);

@@ -1,5 +1,6 @@
 package com.example.api.drones.dto;
 
+import javax.validation.constraints.Pattern;
 import java.math.BigDecimal;
 
 /**
@@ -9,7 +10,9 @@ import java.math.BigDecimal;
 public class MedicationDTO {
 
     private Long id;
+    @Pattern(regexp = "[A-Z0-9_]+", message = "only upper case letters, ‘_’ and numbers are allowed for code")
     private String code;
+    @Pattern(regexp = "[A-Za-z0-9_-]+", message = "only letters, numbers, ‘-‘, ‘_’ are allowed for name")
     private String name;
     private BigDecimal weight;
     private byte[] image;
