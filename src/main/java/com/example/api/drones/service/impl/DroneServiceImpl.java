@@ -1,5 +1,6 @@
 package com.example.api.drones.service.impl;
 
+import com.example.api.drones.config.BaseProperties;
 import com.example.api.drones.dto.DroneDTO;
 import com.example.api.drones.dto.MedicationDTO;
 import com.example.api.drones.enums.DroneState;
@@ -26,13 +27,14 @@ import java.util.stream.Collectors;
 @Service
 public class DroneServiceImpl implements IDroneService {
 
-    private static final double REQUIRED_MIN_BATTERY_LEVEL = 30;
-
     @Autowired
     private DroneRepository droneRepository;
 
     @Autowired
     private DTOMapper dtoMapper;
+
+    @Autowired
+    private BaseProperties baseProperties;
 
     @Override
     public DroneDTO create(DroneDTO droneDTO) {
@@ -70,7 +72,7 @@ public class DroneServiceImpl implements IDroneService {
                 throw new Exception("Medications are over weighted");
             } else if (drone.getState() != DroneState.IDLE) {
                 throw new Exception("Drone is not idle");
-            } else if (drone.getBatteryCapacityPercentage().doubleValue() < REQUIRED_MIN_BATTERY_LEVEL) {
+            } else if (drone.getBatteryCapacityPercentage().doubleValue() < baseProperties.getDroneRequiredMinBatteryLevel()) {
                 throw new Exception("Drone is out of battery");
             }
             drone.getMedications().addAll(medications);
