@@ -26,7 +26,7 @@ ASSUMPTIONS MADE
 
 - In memory H2 database is used along with pre loaded dataset (import.sql)
 - Partial Medicine loading is not allowed, When a drone is load with medicines it will load all given medicines or none
-- Drones will not be able to add alone with medications
+- Drones will not be able to add along with medications
 - (Unit test are partially completed)
 
 API PAYLOADS
