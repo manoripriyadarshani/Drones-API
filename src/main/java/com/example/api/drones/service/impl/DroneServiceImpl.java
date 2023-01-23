@@ -94,4 +94,10 @@ public class DroneServiceImpl implements IDroneService {
         }
     }
 
+    @Override
+    public List<DroneDTO> findAll() {
+        return droneRepository.findAll().stream().map(d -> dtoMapper.convertToDTO(d)).collect(Collectors.toList());
+    }
+
+
 }

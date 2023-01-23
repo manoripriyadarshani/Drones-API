@@ -20,4 +20,5 @@ public interface IDroneService {
     Page<DroneDTO> findAllDrones(Pageable pageable);
     List<MedicationDTO> addMedications(String serialNumber, List<MedicationDTO> medications) throws Exception;
     List<MedicationDTO> getMedications(String serialNumber) throws Exception;
+    List<DroneDTO> findAll();
 }
