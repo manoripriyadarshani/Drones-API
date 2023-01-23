@@ -15,10 +15,16 @@ import java.util.List;
 
 public interface IDroneService {
     DroneDTO create(DroneDTO droneDTO);
+
     DroneDTO findBySerialNumber(String serialNumber);
+
     List<DroneDTO> findByState(DroneState state);
+
     Page<DroneDTO> findAllDrones(Pageable pageable);
+
     List<MedicationDTO> addMedications(String serialNumber, List<MedicationDTO> medications);
+
     List<MedicationDTO> getMedications(String serialNumber);
+
     List<DroneDTO> findAll();
 }

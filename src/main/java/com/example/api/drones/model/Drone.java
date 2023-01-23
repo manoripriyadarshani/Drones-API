@@ -39,7 +39,7 @@ public class Drone {
     @Enumerated(EnumType.STRING)
     private DroneState state;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch= FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "drone_serial_number")
     private List<Medication> medications = new ArrayList<>();
 

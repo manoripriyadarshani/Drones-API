@@ -7,6 +7,7 @@ import java.util.List;
  * @create 1/22/23 7:49 PM
  */
 public class PagedDroneListDTO {
+
     private List<DroneDTO> content;
     private int pageNo;
     private int pageSize;
