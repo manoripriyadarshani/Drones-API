@@ -21,7 +21,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/v1/api/drones")
-public class DroneDispatchController {
+public class DroneDispatchController extends  BaseController {
 
     @Autowired
     private IDroneService droneService;
@@ -62,7 +62,7 @@ public class DroneDispatchController {
     }
 
     @PostMapping("/{serial_number}/medications")
-    public ResponseEntity<MedicationListDTO> addMedications(@PathVariable("serial_number") String serialNumber, @Valid @RequestBody MedicationListDTO requestDTO) throws Exception {
+    public ResponseEntity<MedicationListDTO> addMedications(@PathVariable("serial_number") String serialNumber, @Valid @RequestBody MedicationListDTO requestDTO){
         List<MedicationDTO> savedMedications = droneService.addMedications(serialNumber, requestDTO.getMedications());
         MedicationListDTO responseDTO = new MedicationListDTO();
         responseDTO.setMedications(savedMedications);
@@ -70,7 +70,7 @@ public class DroneDispatchController {
     }
 
     @GetMapping("/{serial_number}/medications")
-    public ResponseEntity<MedicationListDTO> getMedicationsByDrone(@PathVariable("serial_number") String serialNumber) throws Exception {
+    public ResponseEntity<MedicationListDTO> getMedicationsByDrone(@PathVariable("serial_number") String serialNumber){
         List<MedicationDTO> savedMedications = droneService.getMedications(serialNumber);
         MedicationListDTO responseDTO = new MedicationListDTO();
         responseDTO.setMedications(savedMedications);
