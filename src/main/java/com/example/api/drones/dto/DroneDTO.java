@@ -1,7 +1,7 @@
 package com.example.api.drones.dto;
 
-import com.example.api.drones.enums.DroneModel;
-import com.example.api.drones.enums.DroneState;
+import com.example.api.drones.model.enums.DroneModel;
+import com.example.api.drones.model.enums.DroneState;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotEmpty;

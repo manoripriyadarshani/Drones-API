@@ -1,7 +1,7 @@
 package com.example.api.drones.controller;
 
 import com.example.api.drones.dto.*;
-import com.example.api.drones.enums.DroneState;
+import com.example.api.drones.model.enums.DroneState;
 import com.example.api.drones.service.IDroneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

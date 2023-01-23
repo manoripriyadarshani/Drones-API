@@ -1,4 +1,4 @@
-package com.example.api.drones.enums;
+package com.example.api.drones.model.enums;
 
 /**
  * @Author manorip

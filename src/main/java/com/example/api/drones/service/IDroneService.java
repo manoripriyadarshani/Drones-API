@@ -2,7 +2,7 @@ package com.example.api.drones.service;
 
 import com.example.api.drones.dto.DroneDTO;
 import com.example.api.drones.dto.MedicationDTO;
-import com.example.api.drones.enums.DroneState;
+import com.example.api.drones.model.enums.DroneState;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

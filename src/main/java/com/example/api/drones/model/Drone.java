@@ -1,7 +1,7 @@
 package com.example.api.drones.model;
 
-import com.example.api.drones.enums.DroneModel;
-import com.example.api.drones.enums.DroneState;
+import com.example.api.drones.model.enums.DroneModel;
+import com.example.api.drones.model.enums.DroneState;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;

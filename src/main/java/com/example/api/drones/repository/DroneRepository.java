@@ -1,6 +1,6 @@
 package com.example.api.drones.repository;
 
-import com.example.api.drones.enums.DroneState;
+import com.example.api.drones.model.enums.DroneState;
 import com.example.api.drones.model.Drone;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

@@ -1,4 +1,4 @@
-package com.example.api.drones.helpers;
+package com.example.api.drones.helper;
 
 import com.example.api.drones.dto.DroneDTO;
 import com.example.api.drones.service.IDroneService;
